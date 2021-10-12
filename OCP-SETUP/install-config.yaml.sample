@@ -1,0 +1,50 @@
+apiVersion: v1
+baseDomain: pam.vizuri.com
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform:
+    aws:
+      zones:
+      - us-east-1a
+      - us-east-1b
+      rootVolume:
+        size: 50 
+      type: m5.2xlarge
+  replicas: 4
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    aws:
+      zones:
+      - us-east-1a
+      - us-east-1b
+      rootVolume:
+        size: 50 
+      type: m5.xlarge
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: pamperf
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  aws:
+    region: us-east-1
+    subnets:
+      - subnet-???
+      - subnet-???
+      - subnet-???
+      - subnet-???
+publish: External
+pullSecret: '<PULL_SECRET>'

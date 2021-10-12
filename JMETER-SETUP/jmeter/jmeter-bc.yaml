@@ -1,0 +1,23 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: jmeter
+  labels:
+    app: jmeter
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/Vizuri/jmeter-k8s-base.git
+  strategy:
+    type: Docker                      
+    dockerStrategy:
+      dockerfilePath: Dockerfile    # Look for Dockerfile in: gitUri/contextDir/dockerfilePath
+  output:
+    to:
+      kind: ImageStreamTag
+      name: jmeter-k8s-base:latest
+  triggers:
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange

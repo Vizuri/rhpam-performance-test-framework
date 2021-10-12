@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: KieApp.v2.app.kiegroup.org
+  name: pam-xzvbr
+  namespace: pam
+spec:
+  targetNamespaces:
+  - pam

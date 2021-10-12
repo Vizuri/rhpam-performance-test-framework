@@ -1,0 +1,43 @@
+apiVersion: app.kiegroup.org/v2
+kind: KieApp
+metadata:
+  generation: 1
+  name: demo-kie-app
+  namespace: pam
+spec:
+  commonConfig:
+    adminPassword: P@ssw0rd
+    adminUser: rhpamAdmin
+    applicationName: demo-kie-app
+  environment: rhpam-production-immutable
+  objects:
+    servers:
+      - build:
+          gitSource:
+            reference: master
+            uri: 'https://github.com/Vizuri/rhpam7-order-management-demo-repo.git'
+        database:
+          externalConfig:
+            dialect: org.hibernate.dialect.PostgreSQL95Dialect
+            driver: postgresql
+            host: pamdbinstance.cmsmjo74thlf.us-east-1.rds.amazonaws.com
+            name: pamdb
+            password: testpam1
+            port: '5432'
+            username: pam
+            minPoolSize: '100'
+            maxPoolSize: '100'
+          type: external
+        replicas: 2     
+        jvm:
+          javaOptsAppend: '-Dorg.jbpm.ejb.timer.tx=true -Dorg.jbpm.ejb.timer.local.cache=false'
+          enableConfiguration: true
+        resources:
+          requests:
+            memory: 2Gi
+            cpu: 2000m
+          limits:
+            memory: 2Gi
+            cpu: 2000m
+  truststore:
+    openshiftCaBundle: true

@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: grafana
+  namespace: jmeter
+  labels:
+    app: grafana
+spec:
+  host: grafana-jmeter.apps.pamperf.pam.vizuri.com
+  to:
+    kind: Service
+    name: grafana
+    weight: 100
+  port:
+    targetPort: https
+  wildcardPolicy: None
