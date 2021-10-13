@@ -5,13 +5,13 @@ This project contains the test framework to run a performance test against RedHa
 The test framework utilizes Apache JMeter to execution API calles to the PAM API.
 
 ## Prerequisites ##
-- OpenShift Container Platform - The test framework utilized OpenShift to deploy the test process instance KIE container and to run the JMeter test script.  Details on setting up an OpenShift enviroment for the test can be found [here](OCP-SETUP/README).
+- OpenShift Container Platform - The test framework utilized OpenShift to deploy the test process instance KIE container and to run the JMeter test script.  Details on setting up an OpenShift enviroment for the test can be found [here](OCP-SETUP/README.md).
 - PAM Operator - To deploy the test process instance kie server, you need the PAM Operator install in your OpenShift enviroment.  Details for how to depoy the PAM Operator can be found [here](PAM-SETUP).
 
 If you already have the PAM Operator installed in an OpenShift environment proceed to Setup JMeter.
 
 ## Setup JMeter ##
-To set JMeter in your OpenShift Environment, following these [instructions](JMETER/README).
+To set JMeter in your OpenShift Environment, following these [instructions](JMETER/README.md).
 
 ## Deploy KIE Container ##
 The kie folder contains several resource files to deploy kie containers for the performance test.  Choose one and edit for your needs.  You will have to update the database connectivity variables at a minimal.
@@ -39,7 +39,3 @@ If you would like to run your own test against a different process instance you 
 Create a new directory in the scenario folder.  Place you JMeter test file in this folder.  Note that the directory and the jmx file must be named the same thing.  Create a .env file with properties for your test using the one provided as a guide.  
 Then you can run the test using the following command `./start_test.sh -j <CUSTOM_TEST>.jmx -n jmeter -i 10 -r`
 - CUSTOM_TEST - Replace with you test scenario. 
-
--   
-
-
