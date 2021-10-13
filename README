@@ -1,9 +1,9 @@
-#RedHat Process Automation Manager (PAM) Performance Framework
+# RedHat Process Automation Manager (PAM) Performance Framework #
 This project contains the test framework to run a performance test against RedHat PAM.
 
 The test framework utilizes Apache JMeter to execution API calles to the PAM API.
 
-##Prerequisites
+## Prerequisites ##
 - OpenShift Container Platform - The test framework utilized OpenShift to deploy the test process instance KIE container and to run the JMeter test script.  Details on setting up an OpenShift enviroment for the test can be found [here](OCP-SETUP/README).
 - PAM Operator - To deploy the test process instance kie server, you need the PAM Operator install in your OpenShift enviroment.  Details for how to depoy the PAM Operator can be found [here](PAM-SETUP).
 
