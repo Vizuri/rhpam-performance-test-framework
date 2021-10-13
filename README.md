@@ -1,17 +1,23 @@
 # RedHat Process Automation Manager (PAM) #
 # Performance Framework #
-This project contains the test framework to run a performance test against RedHat PAM.
+This project contains the test framework to run a performance test against RedHat PAM.  
 
-The test framework utilizes Apache JMeter to execution API calles to the PAM API.
+The artifacts in this repository were utilized in the publishing of the RedHat PAM Performance Whitepaper.
+
+The test framework utilizes Apache JMeter to product load against PAM KIE Containers Running in an OpenShift Platform.
 
 ## Prerequisites ##
-- OpenShift Container Platform - The test framework utilized OpenShift to deploy the test process instance KIE container and to run the JMeter test script.  Details on setting up an OpenShift enviroment for the test can be found [here](OCP-SETUP/README.md).
-- PAM Operator - To deploy the test process instance kie server, you need the PAM Operator install in your OpenShift enviroment.  Details for how to depoy the PAM Operator can be found [here](PAM-SETUP).
+- OpenShift Container Platform - The test framework utilizes an OpenShift enviroment to host the test process instance containers(Code can be found [here](https://github.com/Vizuri/rhpam7-order-management-demo-repo) and to run the JMeter test scenarios.  
+
+If you do not have an OpenShift enviroment please refer to the RedHat documentation.  
+Details on setting up the OpenShift enviroment for the PAM Performance Test can be found [here](OCP-SETUP/README.md).
+
+- PAM Operator - The test scenarios deploys a KieApp resource provided by the OpenShift PAM Operator.  You need the PAM Operator install in your OpenShift enviroment.  Details for how to depoy the PAM Operator can be found [here](PAM-SETUP).
 
 If you already have the PAM Operator installed in an OpenShift environment proceed to Setup JMeter.
 
 ## Setup JMeter ##
-To set JMeter in your OpenShift Environment, following these [instructions](JMETER/README.md).
+To set JMeter in your OpenShift Environment, following these [instructions](JMETER-SETUP/README.md).
 
 ## Deploy KIE Container ##
 The kie folder contains several resource files to deploy kie containers for the performance test.  Choose one and edit for your needs.  You will have to update the database connectivity variables at a minimal.
